@@ -4,9 +4,17 @@ import { dispatch } from "../../redux";
 import "./HomeHeader.scss";
 import logo from "../../assets/logo.svg";
 import { FormattedMessage } from "react-intl";
+import { LANGUAGES } from "../../utils";
+import { changeLanguageApp } from "../../store/actions";
+
 class HomeHeader extends Component {
+  changeLanguageApp = (language) => {
+    this.props.changeLanguageAppRedux(language);
+  };
+
   render() {
-    console.log("check props:", this.props);
+    let language = this.props.language;
+    console.log("check language:", language);
     return (
       <React.Fragment>
         <div className="home-header-container">
@@ -64,8 +72,28 @@ class HomeHeader extends Component {
                 <i className="fas fa-question-circle"></i>
                 <FormattedMessage id="homeheader.support" />
               </div>
-              <div className="language-vi">VN</div>
-              <div className="language-en">EN</div>
+              <div
+                className={
+                  language === LANGUAGES.VI
+                    ? "language-vi active"
+                    : "language-vi "
+                }
+              >
+                <span onClick={() => this.changeLanguageApp(LANGUAGES.VI)}>
+                  VN
+                </span>
+              </div>
+              <div
+                className={
+                  language === LANGUAGES.EN
+                    ? "language-en active"
+                    : "language-en"
+                }
+              >
+                <span onClick={() => this.changeLanguageApp(LANGUAGES.EN)}>
+                  EN
+                </span>
+              </div>
             </div>
           </div>
         </div>
@@ -143,6 +171,8 @@ const mapStatetoProps = (state) => {
   return { isLoggedIn: state.user.isLoggedIn, language: state.app.language };
 };
 const mapDispatchToProps = (dispatch) => {
-  return {};
+  return {
+    changeLanguageAppRedux: (language) => dispatch(changeLanguageApp(language)),
+  };
 };
 export default connect(mapStatetoProps, mapDispatchToProps)(HomeHeader);
