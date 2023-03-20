@@ -1,7 +1,7 @@
 .home-header-container {
     height : 60px;
     width  : 100%;
-    padding: 0 20px;
+    padding: 0 40px;
 
     .home-header-content {
         width  : 100%;
@@ -9,53 +9,81 @@
         display: flex;
 
         .left-content {
-            width      : 25%;
-            display    : flex;
-            align-items: center;
-            border     : 1px solid green;
+            width        : 20%;
+            display      : flex;
+            align-items  : center;
+            //border     : 1px solid green;
 
             .header-logo {
-                background: url(../../assets/logo.svg) center center no-repeat;
-                height    : 100%;
-                width     : 100%;
-                cursor    : pointer;
+                height     : 100%;
+                width      : 100%;
+                cursor     : pointer;
+                transform  : scale(0.5, 0.5);
+                margin-left: -45px;
             }
+        }
+
+        i {
+            font-size: 25px;
+            color    : grey;
+            cursor   : pointer;
+        }
+    }
+
+    .center-content {
+        width          : 55%;
+        display        : flex;
+        justify-content: space-between;
+        align-items    : center;
+
+        .child-content {
+            .subs-title {
+                font-weight: 400;
+                font-size  : 12px;
+            }
+        }
+    }
+
+    .right-content {
+        width          : 25%;
+        display        : flex;
+        justify-content: flex-end;
+        align-items    : center;
+
+        .support {
+            padding-right: 50px;
+            display      : flex;
+            align-items  : center;
+            cursor       : pointer;
 
             i {
-                font-size: 25px;
-                color    : grey;
-                cursor   : pointer;
-            }
-
-        }
-
-        .center-content {
-            width          : 50%;
-            border         : 1px solid orange;
-            display        : flex;
-            justify-content: space-between;
-            align-items    : center;
-
-            .child-content {
-                .subs-title {
-                    font-weight: 400;
-                    font-size  : 12px;
-                }
+                font-size   : 15px;
+                margin-right: 5px;
             }
         }
 
-        .right-content {
-            width          : 25%;
-            border         : 1px solid grey;
-            display        : flex;
-            justify-content: center;
-            align-items    : center;
+        .language-vi {
+            cursor: pointer;
+
+            &.active {
+                color: orange;
+            }
+        }
+
+        .language-en {
+            cursor: pointer;
+            margin: 0 10px;
+
+            &.active {
+                color: blue;
+            }
         }
     }
 }
 
+
 .home-header-banner {
-    background         : url('../../assets/header-background.jpg');
+    background-image   : url('../../assets/header-background.jpg');
     height             : 485px;
     background-repeat  : no-repeat;
     background-size    : cover;
@@ -64,9 +92,9 @@
     flex-direction     : column;
 
     .content-up {
-        border     : 1px solid red;
-        padding-top: 15px;
-        height     : 50%;
+        background-image: linear-gradient(rgba(126, 126, 126, 0.25), rgba(255, 255, 255, 0.1));
+        padding-top     : 15px;
+        height          : 65%;
 
         .title1 {
             text-align   : center;
@@ -110,8 +138,11 @@
     }
 
     .content-down {
-        border: 1px solid green;
-        height: 50%;
+        height          : 35%;
+        display         : flex;
+        align-items     : flex-end;
+        justify-content : center;
+        background-image: linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 1));
 
         .options {
             text-align     : center;
@@ -119,9 +150,9 @@
             gap            : 50px;
             justify-content: center;
 
-            .options-child {
-                border: 1px solid red;
-                width : 100px;
+            .option-child {
+                //border: 1px solid red;
+                width: 100px;
 
                 .icon-child {
                     background   : white;
