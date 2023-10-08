@@ -168,7 +168,11 @@ class HomeHeader extends Component {
   }
 }
 const mapStatetoProps = (state) => {
-  return { isLoggedIn: state.user.isLoggedIn, language: state.app.language };
+  return {
+    isLoggedIn: state.user.isLoggedIn,
+    language: state.app.language,
+    userInfo: state.userInfo,
+  };
 };
 const mapDispatchToProps = (dispatch) => {
   return {
